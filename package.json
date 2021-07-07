@@ -21,6 +21,7 @@
     "homepage": "https://github.com/lucaslar/htw-kba-gr7-restify-example#readme",
     "devDependencies": {
         "@types/node": "^16.0.0",
+        "@types/restify": "^8.5.1",
         "nodemon": "^2.0.9",
         "prettier": "^2.3.2",
         "rimraf": "^3.0.2",
@@ -30,5 +31,8 @@
     "prettier": {
         "singleQuote": true,
         "tabWidth": 4
+    },
+    "dependencies": {
+        "restify": "^8.5.1"
     }
 }
