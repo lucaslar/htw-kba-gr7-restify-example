@@ -4,7 +4,7 @@ import FakeDb from './fake-db';
 const prizeApi = 'https://api.nobelprize.org/v1/prize.json';
 const laureatesApi = 'https://api.nobelprize.org/v1/laureate.json';
 
-const requestJsonData = (api: string): Promise<any[]> => {
+const requestJsonData = (api: string): Promise<any> => {
     return new Promise((resolve, reject) => {
         let data: string = '';
         https
@@ -18,9 +18,9 @@ const requestJsonData = (api: string): Promise<any[]> => {
 
 export const initData = async (): Promise<void> => {
     try {
-        FakeDb.prizes = await requestJsonData(prizeApi);
+        FakeDb.prizesJson = await requestJsonData(prizeApi);
         console.log('Nobel prize data has been initialized successfully!');
-        FakeDb.laureates = await requestJsonData(laureatesApi);
+        FakeDb.laureatesJson = await requestJsonData(laureatesApi);
         console.log('Laureate data has been initialized successfully!');
     } catch (e) {
         console.error(e);
