@@ -68,6 +68,123 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "(Fake) Auth",
+			"item": [
+				{
+					"name": "200: Log in as Laureate Albert Einstein",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\": \"Albert\",\r\n    \"surname\": \"Einstein\",\r\n    \"password\": \"physics-1921\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/fake-auth/login",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"fake-auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400: Log in with Invalid Body",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\": \"Arnold\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/fake-auth/login",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"fake-auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "401: Log in as Invalid Laureate Arnold Schwarzenegger",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\": \"Arnold\",\r\n    \"surname\": \"Schwarzenegger\",\r\n    \"password\": \"whatever\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/fake-auth/login",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"fake-auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "401: Log in as Valid Laureate Albert Einstein with Invalid \"Password\"",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\": \"Albert\",\r\n    \"surname\": \"Einstein\",\r\n    \"password\": \"physics-2021\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/fake-auth/login",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"fake-auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [
