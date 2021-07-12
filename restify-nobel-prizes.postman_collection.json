@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "50050747-a70e-4335-b4a6-cf2e6119cc9c",
+		"name": "restify-nobel-prizes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Random Nobel Prize",
+			"item": [
+				{
+					"name": "200: Random Nobel Prize",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:{{port}}/nobel-prize/random",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"nobel-prize",
+								"random"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "200: Random Nobel Prize in Category \"Medicine\"",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:{{port}}/nobel-prize/random/medicine",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"nobel-prize",
+								"random",
+								"medicine"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400: Random Nobel Prize in Unknown Category \"abc\"",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:{{port}}/nobel-prize/random/abc",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"nobel-prize",
+								"random",
+								"abc"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "0.0.0.0"
+		},
+		{
+			"key": "port",
+			"value": "8080"
+		}
+	]
+}
