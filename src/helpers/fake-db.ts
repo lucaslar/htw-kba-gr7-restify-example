@@ -3,8 +3,9 @@ import { LaureateDetail } from '../model/laureate-detail';
 import { Affiliation } from '../model/affiliation';
 
 class FakeDb {
-    private _prizes: NobelPrize[] = [];
-    private _laureates: LaureateDetail[] = [];
+    private _prizes!: NobelPrize[];
+    private _laureates!: LaureateDetail[];
+    private _categories!: string[];
 
     get prizes(): NobelPrize[] {
         return this._prizes;
@@ -12,6 +13,10 @@ class FakeDb {
 
     get laureates(): LaureateDetail[] {
         return this._laureates;
+    }
+
+    get categories(): string[] {
+        return this._categories;
     }
 
     set prizesJson(data: any) {
@@ -24,6 +29,8 @@ class FakeDb {
                 share: +l.share,
             })),
         }));
+
+        this._categories = [...new Set(this.prizes.map((p) => p.category))];
     }
 
     set laureatesJson(data: any) {
