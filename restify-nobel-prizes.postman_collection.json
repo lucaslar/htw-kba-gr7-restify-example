@@ -178,6 +178,121 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Colleague Data (guarded routes)",
+			"item": [
+				{
+					"name": "500: No Token (Server: next(Err))",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/laureate-colleague?surname=einstein",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"laureate-colleague"
+							],
+							"query": [
+								{
+									"key": "surname",
+									"value": "einstein"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "401: Invalid Token",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "supersecrettoken",
+								"value": "123",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/laureate-colleague?surname=curie",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"laureate-colleague"
+							],
+							"query": [
+								{
+									"key": "surname",
+									"value": "curie"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400: No query params",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "supersecrettoken",
+								"value": "26$$$$$Einstein$$$$$male$$$$$1879",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/laureate-colleague",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"laureate-colleague"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400: No valid query params",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "supersecrettoken",
+								"value": "26$$$$$Einstein$$$$$male$$$$$1879",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/laureate-colleague?abc=123",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"laureate-colleague"
+							],
+							"query": [
+								{
+									"key": "abc",
+									"value": "123"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [
