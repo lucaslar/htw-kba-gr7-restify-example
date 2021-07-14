@@ -3,6 +3,8 @@ import FakeDb from './fake-db';
 
 const joinChars = '$$$$$';
 
+export const tokenKey = 'supersecrettoken';
+
 export const getToken = (laureate: LaureateDetail): string => {
     return [
         laureate.id,
@@ -21,4 +23,8 @@ export const isValidToken = (token: string): boolean => {
             l.gender === gender &&
             l.born?.getFullYear() === +born
     );
+};
+
+export const idFromToken = (token: string): string => {
+    return token.split(joinChars)[0];
 };

@@ -1,6 +1,10 @@
 import { Next, Request, Response } from 'restify';
 import FakeDb from '../helpers/fake-db';
-import { getToken, isValidToken } from '../helpers/fake-token-service';
+import {
+    getToken,
+    isValidToken,
+    tokenKey,
+} from '../helpers/fake-token-service';
 
 export const login = (req: Request, res: Response, next: Next): void => {
     const required = ['firstname', 'surname', 'password'];
@@ -50,9 +54,7 @@ export const validateToken = (
     res: Response,
     next: Next
 ): void => {
-    const tokenKey = 'supersecrettoken';
     const token = req.header(tokenKey);
-
     if (!token) {
         const errMsg = `No ${tokenKey} provided! You're right, this is rather an error 401. Check the application in order to understand the demo case for throwing this error.`;
         // Retuning an error with next will default to error 500:

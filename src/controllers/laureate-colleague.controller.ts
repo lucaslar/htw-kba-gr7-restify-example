@@ -64,5 +64,3 @@ export const getColleagueData = (req: Request, res: Response): void => {
         res.send({ ignoredQueryParams, hits });
     }
 };
-
-export const getOwnData = (req: Request, res: Response): void => {}; // TODO implement
