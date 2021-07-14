@@ -11,6 +11,11 @@ initData().then(() => {
     server.use(plugins.bodyParser());
     server.use(plugins.queryParser());
 
+    server.on('BadRequest', (req, res, err, cb) => {
+        console.log('Exemplary Bad Request Logging...Error:\n', err);
+        return cb();
+    });
+
     server.listen(port, host, () => {
         console.log('Running on:', server.address());
         [

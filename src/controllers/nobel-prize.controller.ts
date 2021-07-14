@@ -15,13 +15,14 @@ export const randomNobelPrizeInCategory = (
     const cat = req.params.category.toLowerCase();
     if (!FakeDb.categories.includes(cat)) {
         const catList = FakeDb.categories.join(', ');
-        const err = new BadRequestError(`Unknown category '${cat}'! Must be one of: ${catList}`);
-       // res.send(400, err);
+        const errMsg = `Unknown category '${cat}'! Must be one of: ${catList}`;
+        const err = new BadRequestError(errMsg);
         next(err);
+        // Same as:
+        // res.send(400, err);
     } else {
         const prizes = FakeDb.prizes.filter((p) => p.category === cat);
         const randomNr = Math.floor(Math.random() * prizes.length);
         res.send(prizes[randomNr]);
-        next();
     }
 };
