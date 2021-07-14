@@ -14,11 +14,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/nobel-prize/random",
+							"raw": "{{url}}/nobel-prize/random",
 							"host": [
-								"{{host}}"
+								"{{url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"nobel-prize",
 								"random"
@@ -33,11 +32,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/nobel-prize/random/medicine",
+							"raw": "{{url}}/nobel-prize/random/medicine",
 							"host": [
-								"{{host}}"
+								"{{url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"nobel-prize",
 								"random",
@@ -53,11 +51,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/nobel-prize/random/abc",
+							"raw": "{{url}}/nobel-prize/random/abc",
 							"host": [
-								"{{host}}"
+								"{{url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"nobel-prize",
 								"random",
@@ -87,11 +84,10 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/fake-auth/login",
+							"raw": "{{url}}/fake-auth/login",
 							"host": [
-								"{{host}}"
+								"{{url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"fake-auth",
 								"login"
@@ -115,11 +111,10 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/fake-auth/login",
+							"raw": "{{url}}/fake-auth/login",
 							"host": [
-								"{{host}}"
+								"{{url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"fake-auth",
 								"login"
@@ -143,11 +138,10 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/fake-auth/login",
+							"raw": "{{url}}/fake-auth/login",
 							"host": [
-								"{{host}}"
+								"{{url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"fake-auth",
 								"login"
@@ -171,11 +165,10 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/fake-auth/login",
+							"raw": "{{url}}/fake-auth/login",
 							"host": [
-								"{{host}}"
+								"{{url}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"fake-auth",
 								"login"
@@ -209,12 +202,8 @@
 	],
 	"variable": [
 		{
-			"key": "host",
-			"value": "0.0.0.0"
-		},
-		{
-			"key": "port",
-			"value": "8080"
+			"key": "url",
+			"value": "0.0.0.0:8080"
 		}
 	]
 }
