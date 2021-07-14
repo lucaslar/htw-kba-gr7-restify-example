@@ -180,7 +180,7 @@
 			]
 		},
 		{
-			"name": "Colleague Data (guarded routes)",
+			"name": "Laureate Data (guarded routes)",
 			"item": [
 				{
 					"name": "500: No Token (Server: next(Err))",
@@ -194,12 +194,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/laureate-colleague?surname=einstein",
+							"raw": "{{url}}/laureate-details?surname=einstein",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"laureate-colleague"
+								"laureate-details"
 							],
 							"query": [
 								{
@@ -223,12 +223,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/laureate-colleague?surname=curie",
+							"raw": "{{url}}/laureate-details?surname=curie",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"laureate-colleague"
+								"laureate-details"
 							],
 							"query": [
 								{
@@ -241,7 +241,7 @@
 					"response": []
 				},
 				{
-					"name": "400: No query params",
+					"name": "400: No Query Params",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -252,19 +252,19 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/laureate-colleague",
+							"raw": "{{url}}/laureate-details",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"laureate-colleague"
+								"laureate-details"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "400: No valid query params",
+					"name": "400: No Valid Query Params",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -275,18 +275,144 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/laureate-colleague?abc=123",
+							"raw": "{{url}}/laureate-details?abc=123",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"laureate-colleague"
+								"laureate-details"
 							],
 							"query": [
 								{
 									"key": "abc",
 									"value": "123"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "200: Request All Laureates with First Name \"Albert\" from France (Ignoring Case)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "supersecrettoken",
+								"value": "26$$$$$Einstein$$$$$male$$$$$1879",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/laureate-details?firstname=albert&bornCountryCode=fr",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"laureate-details"
+							],
+							"query": [
+								{
+									"key": "firstname",
+									"value": "albert"
+								},
+								{
+									"key": "bornCountryCode",
+									"value": "fr"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "200: Get Colleague with ID 6 (Marie Curie)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "supersecrettoken",
+								"value": "26$$$$$Einstein$$$$$male$$$$$1879",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/laureate-details?id=6&born=1867-11-07T00:00:00.000Z",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"laureate-details"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6"
+								},
+								{
+									"key": "born",
+									"value": "1867-11-07T00:00:00.000Z"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "200: Get Empty Result List and Ignored Params",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "supersecrettoken",
+								"value": "26$$$$$Einstein$$$$$male$$$$$1879",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/laureate-details?firstname=arnold&surname=schwarzenegger&ignored-param=123",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"laureate-details"
+							],
+							"query": [
+								{
+									"key": "firstname",
+									"value": "arnold"
+								},
+								{
+									"key": "surname",
+									"value": "schwarzenegger"
+								},
+								{
+									"key": "ignored-param",
+									"value": "123"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "200: Own Data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "supersecrettoken",
+								"value": "26$$$$$Einstein$$$$$male$$$$$1879",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/own-data-route",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"own-data-route"
 							]
 						}
 					},
