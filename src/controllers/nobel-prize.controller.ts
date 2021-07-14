@@ -1,6 +1,6 @@
 import { Request, Response, Next } from 'restify';
 import FakeDb from '../helpers/fake-db';
-import {BadRequestError} from "restify-errors";
+import { BadRequestError } from 'restify-errors';
 
 export const randomNobelPrize = (req: Request, res: Response): void => {
     const randomNr = Math.floor(Math.random() * FakeDb.prizes.length);
