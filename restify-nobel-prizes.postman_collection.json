@@ -9,6 +9,24 @@
 			"name": "Random Nobel Prize",
 			"item": [
 				{
+					"name": "200: Random Nobel Prize",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/nobel-prize/random",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"nobel-prize",
+								"random"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "200: Random Nobel With, URL with Slashes (successful due to pre-plugin)",
 					"request": {
 						"method": "GET",
@@ -26,24 +44,6 @@
 								"",
 								"",
 								"",
-								"random"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "200: Random Nobel Prize Copy",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/nobel-prize/random",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"nobel-prize",
 								"random"
 							]
 						}
