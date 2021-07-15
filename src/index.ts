@@ -8,10 +8,12 @@ import { registerLaureateDetailsRoutes } from './routes/laureate-details.routes'
 
 // Initializes the data, i.e. requests it. Afterwards (then(() => ...)...
 initData().then(() => {
-
     // Define host and port and create a Restify server
     const [host, port] = ['0.0.0.0', 8080];
     const server: Server = createServer();
+
+    // Plugin for supporting malformed URLs (extra slashes): e.g. <url>////something///
+    server.pre(plugins.pre.dedupeSlashes());
 
     // Plugins to be used (use => available in each route)
     // .use(...) should be called before defining routes
