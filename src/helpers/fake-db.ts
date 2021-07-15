@@ -2,23 +2,57 @@ import { NobelPrize } from '../model/nobel-prize';
 import { LaureateDetail } from '../model/laureate-detail';
 import { Affiliation } from '../model/affiliation';
 
+/**
+ * Class used for faking a database, i.e. for storing required application data.
+ */
 class FakeDb {
+
+    /**
+     * Stored Nobel Prize data.
+     * @private
+     */
     private _prizes!: NobelPrize[];
+
+    /**
+     * Stored laureate information.
+     * @private
+     */
     private _laureates!: LaureateDetail[];
+
+    /**
+     * List of existing Nobel Price categories.
+     * @private
+     */
     private _categories!: string[];
 
+    /**
+     * @return List of Nobel Prizes.
+     */
     get prizes(): NobelPrize[] {
         return this._prizes;
     }
 
+    /**
+     * @return List of laureates (detailed)
+     */
     get laureates(): LaureateDetail[] {
         return this._laureates;
     }
 
+    /**
+     * @return List of existing Nobel Price categories.
+     */
     get categories(): string[] {
         return this._categories;
     }
 
+    /**
+     * Sets the Nobel Prize data returned from the (external) Nobel Prize API
+     * in a way matching the defined model. Also, the list of unique categories
+     * is set.
+     *
+     * @param data Nobel Prize data to be stored.
+     */
     set prizesJson(data: any) {
         this._prizes = data.prizes.map((p: any) => ({
             ...p,
@@ -33,6 +67,12 @@ class FakeDb {
         this._categories = [...new Set(this.prizes.map((p) => p.category))];
     }
 
+    /**
+     * Sets the laureate data returned from the (external) Nobel Prize API
+     * in a way matching the defined model.
+     *
+     * @param data Laureate data to be stored.
+     */
     set laureatesJson(data: any) {
         this._laureates = data.laureates.map((l: any) => ({
             ...l,
@@ -54,4 +94,7 @@ class FakeDb {
     }
 }
 
+/**
+ * Default exports of this module (Singleton).
+ */
 export default module.exports = new FakeDb();
