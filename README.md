@@ -18,14 +18,14 @@ After pulling this repository you have two (or rather 2,5) options for setting u
 #### A: Productive mode
 
 ```shell
-npm run start:dev
+npm run build
+npm run start:prod
 ```
 
 #### B: Dev mode
 
 ```shell
-npm run build
-npm run start:prod
+npm run start:dev
 ```
 
 ### Option 2: Docker
